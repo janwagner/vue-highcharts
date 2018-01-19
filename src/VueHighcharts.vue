@@ -6,6 +6,8 @@
 <script>
   import Highcharts from 'highcharts'
   import {warn} from './debug'
+  import Regression from './highcharts-regression.js'
+  Regression(Highcharts);
 
   export default {
     props: ['options', 'Highcharts'],

@@ -12,23 +12,8 @@
                     <p>load data with async</p>
                 </h3>
                 <vue-highcharts :options="options" ref="lineCharts"></vue-highcharts>
-                <button @click="load">load</button>
-                <button @click="update">update xAxis Categories</button>
                 <button @click="remove">remove Series</button>
                 <button @click="add">add Series</button>
-            </section>
-            <section class="charts">
-                <h3>Area Basic</h3>
-                <vue-highcharts :options="areaOptions" ref="areaCharts"></vue-highcharts>
-            </section>
-
-            <section class="charts">
-                <h3>pie-basic</h3>
-                <vue-highcharts :options="pieOptions" ref="pieChart"></vue-highcharts>
-            </section>
-            <section class="charts">
-                <h3>Drilldown</h3>
-                <vue-highcharts :Highcharts="Highcharts" :options="drilldownOptions" ref="drilldownChart"></vue-highcharts>
             </section>
         </section>
 
@@ -77,12 +62,37 @@ export default {
         },
         add() {
             this.$refs.lineCharts.addSeries({
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
-                    y: 26.5,
-                    marker: {
-                        symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
-                    }
-                }, 23.3, 18.3, 13.9, 9.6]
+                regression: true,
+                regressionSettings: {
+                    type: 'polynomial',
+                    color: 'rgba(223, 83, 83, .9)',
+                    extrapolate: 5
+                },
+                name: 'Test input',
+                color: 'rgba(223, 83, 83, .5)',
+                data: [
+                    /* Dec 2017 */
+                    [1512086400000,171.05],
+                    [1512345600000,169.80],
+                    [1512432000000,169.64],
+                    [1512518400000,169.01],
+                    [1512604800000,169.32],
+                    [1512691200000,169.37],
+                    [1512950400000,172.67],
+                    [1513036800000,171.70],
+                    [1513123200000,172.27],
+                    [1513209600000,172.22],
+                    [1513296000000,173.97],
+                    [1513555200000,176.42],
+                    [1513641600000,174.54],
+                    [1513728000000,174.35],
+                    [1513814400000,175.01],
+                    [1513900800000,175.01],
+                    [1514246400000,170.57],
+                    [1514332800000,170.60],
+                    [1514419200000,171.08],
+                    [1514505600000,169.23],
+                ]
             })
         }
     }
